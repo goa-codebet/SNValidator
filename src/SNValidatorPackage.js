@@ -1,7 +1,7 @@
 import { SNValidator } from './validator'
 
 export default {
-    name: 'snvalidator',
+    name: 'SNValidator',
     id: 'se.codebet.snvalidator', 
 
     configure: function(config) {
