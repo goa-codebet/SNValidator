@@ -27,21 +27,21 @@ class SNValidator extends Validator {
                 this.addWarning('Missing channel')
             }
 
-            if (hasHeadline) {
-                this.addError('Missing headline')
+            if (!hasHeadline) {
+                this.addError('Headline is required to save')
             }
         }
-        else if (['imext:usable', 'imext:withheld'].includes(pubStatus)) {
+        else if (['stat:usable', 'stat:withheld'].includes(pubStatus)) {
             if (!hasSection) {
-                this.addError('Missing section')
+                this.addError('Section is required to publish')
             }
 
             if (!hasChannel) {
-                this.addError('Missing channel')
+                this.addError('Channel is required to publish')
             }
 
             if (!hasHeadline) {
-                this.addError('Missing headline')
+                this.addError('Headline is required to publish')
             }
         }
     }
