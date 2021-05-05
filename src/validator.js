@@ -1,6 +1,6 @@
-import { Validator } from 'writer'
+import writer from 'writer'
 
-class SNValidator extends Validator {
+class SNValidator extends writer.Validator {
     constructor(...args) {
         super(...args)
     }
@@ -20,28 +20,28 @@ class SNValidator extends Validator {
 
         if (['imext:draft', 'imext:approved', 'imext:done'].includes(pubStatus)) {
             if (!hasSection) {
-                this.addWarning('Missing sections')
+                this.addWarning(writer.api.getLabel('Missing sections'))
             }
 
             if (!hasChannel) {
-                this.addWarning('Missing publication channel')
+                this.addWarning(writer.api.getLabel('Missing publication channel'))
             }
 
             if (!hasHeadline) {
-                this.addError('Missing headline')
+                this.addError(writer.api.getLabel('Missing headline'))
             }
         }
         else if (['stat:usable', 'stat:withheld'].includes(pubStatus)) {
             if (!hasSection) {
-                this.addError('Missing sections')
+                this.addError(writer.api.getLabel('Missing sections'))
             }
 
             if (!hasChannel) {
-                this.addError('Missing publication channel')
+                this.addError(writer.api.getLabel('Missing publication channel'))
             }
 
             if (!hasHeadline) {
-                this.addError('Missing headline')
+                this.addError(writer.api.getLabel('Missing headline'))
             }
         }
     }
