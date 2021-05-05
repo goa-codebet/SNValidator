@@ -20,28 +20,28 @@ class SNValidator extends Validator {
 
         if (['imext:draft', 'imext:approved', 'imext:done'].includes(pubStatus)) {
             if (!hasSection) {
-                this.addWarning('Missing section')
+                this.addWarning('Missing sections')
             }
-            
+
             if (!hasChannel) {
-                this.addWarning('Missing channel')
+                this.addWarning('Missing publication channel')
             }
 
             if (!hasHeadline) {
-                this.addError('Headline is required to save')
+                this.addError('Missing headline')
             }
         }
         else if (['stat:usable', 'stat:withheld'].includes(pubStatus)) {
             if (!hasSection) {
-                this.addError('Section is required to publish')
+                this.addError('Missing sections')
             }
 
             if (!hasChannel) {
-                this.addError('Channel is required to publish')
+                this.addError('Missing publication channel')
             }
 
             if (!hasHeadline) {
-                this.addError('Headline is required to publish')
+                this.addError('Missing headline')
             }
         }
     }

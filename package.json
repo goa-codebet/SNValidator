@@ -1,7 +1,7 @@
 {
-    "name": "npwriter-dev-kit",
-    "version": "1.4.1",
-    "description": "Development kit for developing plugin for the Newspilot Writer",
+    "name": "snvalidator",
+    "version": "1.0.1",
+    "description": "Validation plugin for SN",
     "main": "src/index.js",
     "scripts": {
         "start": "webpack-dev-server --config __tooling__/webpack/webpack.dev.js --hot --progress --watch",
@@ -11,25 +11,7 @@
         "release:hotfix": "npm version patch --no-git-tag-version",
         "postversion": "git add package.json package-lock.json && git commit -m \"Bump version to v$npm_package_version\""
     },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/Infomaker/NPWriterDevKit.git"
-    },
-    "contributors": [
-        {
-            "name": "Danne Lundqvist",
-            "email": "danne.lundqvist@infomaker.se"
-        },
-        {
-            "name": "Oscar Karlsson",
-            "email": "oscar.karlsson@infomaker.se"
-        }
-    ],
     "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/Infomaker/NPWriterDevKit/issues"
-    },
-    "homepage": "https://github.com/Infomaker/NPWriterDevKit#readme",
     "devDependencies": {
         "@babel/cli": "^7.8.4",
         "@babel/core": "^7.9.0",
