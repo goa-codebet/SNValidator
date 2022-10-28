@@ -17,7 +17,7 @@ class SNValidator extends writer.Validator {
             this.newsItem.querySelector("element[type='headline']").textContent.length > 0)
         const hasSection = this.newsItem.querySelectorAll("link[type='x-im/section']").length > 0
         const hasChannel = this.newsItem.querySelectorAll("link[type='x-im/channel']").length > 0
-        const newsItemType = this.newsItem.querySelectorAll("type[imext:type]").value;
+        const isMeta = this.newsItem.querySelector("link[type='x-im/articlecontenttype']").getAttribute('uri') === "im://articlecontenttype/meta";
 
         if (['imext:draft', 'imext:approved', 'imext:done'].includes(pubStatus)) {
             if (!hasSection) {
@@ -28,7 +28,7 @@ class SNValidator extends writer.Validator {
                 this.addWarning(writer.api.getLabel('Missing publication channel'))
             }
 
-            if (newsItemType !== "x-im/meta" && !hasHeadline) {
+            if (!isMeta && !hasHeadline) {
                 this.addError(writer.api.getLabel('Missing headline'))
             }
         }
@@ -41,7 +41,7 @@ class SNValidator extends writer.Validator {
                 this.addError(writer.api.getLabel('Missing publication channel'))
             }
 
-            if (newsItemType !== "x-im/meta" && !hasHeadline) {
+            if (!isMeta && !hasHeadline) {
                 this.addError(writer.api.getLabel('Missing headline'))
             }
         }
