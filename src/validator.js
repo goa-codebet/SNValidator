@@ -17,7 +17,8 @@ class SNValidator extends writer.Validator {
             this.newsItem.querySelector("element[type='headline']").textContent.length > 0)
         const hasSection = this.newsItem.querySelectorAll("link[type='x-im/section']").length > 0
         const hasChannel = this.newsItem.querySelectorAll("link[type='x-im/channel']").length > 0
-        const isMeta = this.newsItem.querySelector("link[type='x-im/articlecontenttype']").getAttribute('uri') === "im://articlecontenttype/meta";
+        const contentType = this.newsItem.querySelector("link[type='x-im/articlecontenttype']");
+        const isMeta = contentType && contentType.getAttribute('uri') === "im://articlecontenttype/meta";
 
         if (['imext:draft', 'imext:approved', 'imext:done'].includes(pubStatus)) {
             if (!hasSection) {
